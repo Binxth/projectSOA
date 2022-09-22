@@ -5,10 +5,10 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticatorInterface
+namespace AuthInterface
 {
     [ServiceContract]
-    public interface AuthInterface
+    public interface AuthenticatorInterface
     {
         [OperationContract]
         String Register(String username, String password);

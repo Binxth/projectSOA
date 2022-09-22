@@ -13,12 +13,12 @@ namespace RegistryProj.Controllers
 {
     public class AllServicesController : ApiController
     {
-        ValidateReq validator = new ValidateReq();
+        
         
         [Route("api/allservices")]
         public IHttpActionResult GetAllServices(int token)
         {
-            string validateStatus = validator.Validate(token);
+            string validateStatus = ValidateReq.Validate(token);
 
             if (validateStatus == "validated")
             {

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using RegistryProj.Models;
 using RegistryProj.Services;
 using System;
@@ -13,12 +14,12 @@ namespace RegistryProj.Controllers
 {
     public class PublishController : ApiController
     {
-        ValidateReq validator = new ValidateReq();
+      
 
         [Route("api/publish")]
         public IHttpActionResult PostPublish(ServiceModel service, int token)
         {
-            string validateStatus = validator.Validate(token);
+            string validateStatus = ValidateReq.Validate(token);
 
             if (validateStatus == "validated")
             {
@@ -48,7 +49,8 @@ namespace RegistryProj.Controllers
 
                 services.Add(service);
 
-                string json = JsonConvert.SerializeObject(services);
+                string json = JsonConvert.SerializeObject(services, Formatting.Indented,
+           new JsonConverter[] { new StringEnumConverter() });
                 File.WriteAllText("services.txt", json);
 
                 return Ok("Service published");

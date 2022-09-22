@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ServiceProvider.Models;
 using ServiceProvider.Services;
 using System;
 using System.Collections.Generic;
@@ -48,12 +49,17 @@ namespace ServiceProvider.Controllers
                 int sum = ArithmaticService.AddThreeNums(num1, num2, num3);
                 string json = JsonConvert.SerializeObject(new { sum = sum });
 
-                return Ok(new { sum = sum });
+                return Ok(ResponseModel.CreateResponse(new { sum = sum }, "Success", ""));
 
             }
             else
             {
-                return Ok(new { Status = "Denied", Reason = "Authentication Error" });
+                
+                return Ok(ResponseModel.CreateResponse(new { }, "Denied", "Authentication Error"));
+
+
+
+
             }
 
         }

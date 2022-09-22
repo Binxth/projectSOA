@@ -24,13 +24,13 @@ namespace Authenticator
             Console.WriteLine("Authenticator Online");
 
 
-            AuthenticatorImplementation instance = new AuthenticatorImplementation();
+            
         
             //clear tokens in a new thread
-            Thread clearTokens = new Thread(new ThreadStart(instance.ClearTokens));
+            Thread clearTokens = new Thread(new ThreadStart(AuthenticatorImplementation.ClearTokens));
             clearTokens.IsBackground = true;
             clearTokens.Start();
-
+            
             Console.ReadLine();
             host.Close();
         }

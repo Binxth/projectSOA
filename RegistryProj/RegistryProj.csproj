@@ -253,9 +253,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Authenticator\Authenticator.csproj">
-      <Project>{0a11b32f-e362-49c5-9ace-a56f68b826c7}</Project>
-      <Name>Authenticator</Name>
+    <ProjectReference Include="..\AuthInterface\AuthInterface.csproj">
+      <Project>{c76eddc0-8624-4bb7-a6fa-590ec66cbe01}</Project>
+      <Name>AuthInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -66,7 +66,7 @@ namespace Authenticator
             return "not validated";
         }
 
-        public void ClearTokens()
+        public static void ClearTokens()
         {
             while (true)
             {

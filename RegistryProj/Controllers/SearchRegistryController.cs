@@ -13,13 +13,13 @@ namespace RegistryProj.Controllers
 {
     public class SearchRegistryController : ApiController
     {
-        ValidateReq validator = new ValidateReq();
+       
 
         [Route("api/searchregistry")]
         public IHttpActionResult GetSearch(string description, int token)
         {
 
-            string validateStatus = validator.Validate(token);
+            string validateStatus = ValidateReq.Validate(token);
 
             if (validateStatus == "validated")
             {

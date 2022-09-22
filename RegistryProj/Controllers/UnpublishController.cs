@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using RegistryProj.Models;
 using RegistryProj.Services;
 using System;
@@ -13,12 +14,12 @@ namespace RegistryProj.Controllers
 {
     public class UnpublishController : ApiController
     {
-        ValidateReq validator = new ValidateReq();
+       
         
         [Route("api/unpublish")]
         public IHttpActionResult PostUnpublish(string name, int token)
         {
-            string validateStatus = validator.Validate(token);
+            string validateStatus = ValidateReq.Validate(token);
             if (validateStatus == "validated")
             {
 
@@ -45,7 +46,8 @@ namespace RegistryProj.Controllers
                     services.RemoveAll(serv => serv.Name == name);
 
                     //write to file
-                    string json = JsonConvert.SerializeObject(services);
+                    string json = JsonConvert.SerializeObject(services, Formatting.Indented,
+           new JsonConverter[] { new StringEnumConverter() });
                     File.WriteAllText("services.txt", json);
 
                     return Ok("Service unpublished");
