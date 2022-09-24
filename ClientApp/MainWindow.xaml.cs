@@ -54,6 +54,7 @@ namespace ClientApp
             if (token != 0)
             {
                 user = new UserModel(username, token);
+
                 MessageBox.Show("Login Successful");
                 this.Hide();
                 var servicesScreen = new ServicesScreen(user);

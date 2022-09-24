@@ -18,10 +18,10 @@ namespace ServicePublisher
         }
         public UserModel(string username, int token)
         {
-            username = username;
+            this.username = username;
             
             
-            token = token;
+            this.token = token;
         }
 
 

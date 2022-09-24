@@ -21,15 +21,23 @@ namespace ClientApp
     {
         UserModel user;
         
-        public ServicesScreen()
-        {
-            InitializeComponent();
-        }
-
+      
+        
         public ServicesScreen(UserModel user)
         {
-            this.user = user;
             InitializeComponent();
+            this.user = user;
+            welcomeText.Text = "Hello " + user.username + " !";
+        }
+
+        private void getServicesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void searchServiceButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

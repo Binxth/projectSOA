@@ -18,10 +18,8 @@ namespace ClientApp
         }
         public UserModel(string username, int token)
         {
-            username = username;
-
-
-            token = token;
+            this.username = username;
+            this.token = token;
         }
 
 
