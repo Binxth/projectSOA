@@ -15,8 +15,25 @@
                  Background="#FFE6EEF7"
                  Foreground="#FF4C4E52"/>
         <Button x:Name="searchServiceButton"  Style="{DynamicResource RoundButton}" Content="Search" HorizontalAlignment="Left" Margin="451,141,0,0" VerticalAlignment="Top" Height="18" Width="73" Click="searchServiceButton_Click"/>
-
+        <DataGrid AutoGenerateColumns="False" x:Name="allServiceTable" HorizontalAlignment="Center" Height="134" Margin="0,185,0,0" VerticalAlignment="Top" Width="800" PreviewMouseDoubleClick="allServiceTable_PreviewMouseDoubleClick">
+            <DataGrid.Resources>
+                <Style TargetType= "{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Header="API Endpoint" IsReadOnly="True" Binding="{Binding APIendpoint}" Width="250"></DataGridTextColumn>
+                <DataGridTextColumn Header="Num.of Operands" IsReadOnly="True" Binding="{Binding NumOperands}" Width="110"></DataGridTextColumn>
+                <DataGridTextColumn Header="Operand Type" IsReadOnly="True" Binding="{Binding OperandType}" Width="100"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
+
+
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
