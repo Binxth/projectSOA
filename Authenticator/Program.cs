@@ -24,9 +24,7 @@ namespace Authenticator
             Console.WriteLine("Authenticator Online");
 
 
-            
-        
-            //clear tokens in a new thread
+            //clear tokens function is running in a new thread.
             Thread clearTokens = new Thread(new ThreadStart(AuthenticatorImplementation.ClearTokens));
             clearTokens.IsBackground = true;
             clearTokens.Start();

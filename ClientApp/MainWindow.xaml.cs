@@ -53,10 +53,12 @@ namespace ClientApp
 
             if (token != 0)
             {
+                //user object is created the allocated token
                 user = new UserModel(username, token);
 
                 MessageBox.Show("Login Successful");
                 this.Hide();
+                //user object is passed to the next screen
                 var servicesScreen = new ServicesScreen(user);
                 servicesScreen.Show();
             }
@@ -79,7 +81,7 @@ namespace ClientApp
 
             if (username == "" || password == "")
             {
-                MessageBox.Show("Please fill in all fields");
+                MessageBox.Show("Missing fields!! Fill all");
                 return;
             }
 

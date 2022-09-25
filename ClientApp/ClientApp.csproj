@@ -90,6 +90,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalcResponseModel.cs" />
     <Compile Include="ServiceModel.cs" />
     <Compile Include="ServicesScreen.xaml.cs">
       <DependentUpon>ServicesScreen.xaml</DependentUpon>

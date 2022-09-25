@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
+//Interface of .NET remoting server (Aithenticator) is taken into a seperate project for the purpose of reusability.
 namespace AuthInterface
 {
     [ServiceContract]

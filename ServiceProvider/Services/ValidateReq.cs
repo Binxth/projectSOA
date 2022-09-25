@@ -7,6 +7,7 @@ using System.Web;
 
 namespace ServiceProvider.Services
 {
+    //connection to the Remoting Server is made to validate the token
     public class ValidateReq
     {
         private AuthenticatorInterface authenticatorServer;
@@ -23,6 +24,7 @@ namespace ServiceProvider.Services
 
         public string Validate(int token)
         {
+            //Validate function in Remoting server is called.
             string validate = authenticatorServer.Validate(token);
             return validate;
         }

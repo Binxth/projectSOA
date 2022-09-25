@@ -13,9 +13,12 @@ namespace Authenticator
     internal class AuthenticatorImplementation : AuthenticatorInterface
     {
 
+        
         public String Register(String username, String password)
         {
-            using (StreamWriter writer = new StreamWriter("C:\\Users\\Binxth\\Desktop\\clients.txt", true))
+            //relative file path is used to store the username and password
+            //Eg: C:\Users\Binxth\Desktop\DC Assignment\projectSOA\Authenticator\bin\Debug\clients.txt
+            using (StreamWriter writer = new StreamWriter("clients.txt", true))
 
             {
                 UserModel user = new UserModel(username, password);
@@ -30,7 +33,7 @@ namespace Authenticator
 
         public int Login(String username, String password)
         {
-            string[] lines = File.ReadAllLines("C:\\Users\\Binxth\\Desktop\\clients.txt");
+            string[] lines = File.ReadAllLines("clients.txt");
             foreach (string line in lines)
             {
                 UserModel user = Newtonsoft.Json.JsonConvert.DeserializeObject<UserModel>(line);
@@ -38,7 +41,10 @@ namespace Authenticator
                 {
                     Random rnd = new Random();
                     int token = rnd.Next(100000, 999999);
-                    using (StreamWriter writer = new StreamWriter("C:\\Users\\Binxth\\Desktop\\tokens.txt", true))
+                    //relative file path is used to store the tokens
+                    //Eg: C:\Users\Binxth\Desktop\DC Assignment\projectSOA\Authenticator\bin\Debug\tokens.txt
+
+                    using (StreamWriter writer = new StreamWriter("tokens.txt", true))
                     {
                         writer.WriteLine(token);
                         writer.Close();
@@ -54,7 +60,7 @@ namespace Authenticator
 
         public String Validate(int token)
         {
-            string[] lines = File.ReadAllLines("C:\\Users\\Binxth\\Desktop\\tokens.txt");
+            string[] lines = File.ReadAllLines("tokens.txt");
             foreach (string line in lines)
             {
                 if (line == token.ToString())
@@ -70,8 +76,9 @@ namespace Authenticator
         {
             while (true)
             {
+                //clearing the tokens in evey 5 minutes
                 System.Threading.Thread.Sleep(1000 * 60 * 5);
-                File.WriteAllText("C:\\Users\\Binxth\\Desktop\\tokens.txt", string.Empty);
+                File.WriteAllText("tokens.txt", string.Empty);
                 Console.WriteLine("Tokens cleared!!");
                 
                 

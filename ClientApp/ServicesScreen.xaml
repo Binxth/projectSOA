@@ -6,31 +6,49 @@
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
         Title="ServicesScreen" Height="450" Width="800">
-    <Grid>
-        <TextBlock x:Name="welcomeText" HorizontalAlignment="Left" Height="26" Margin="635,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontSize="13" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Height="27" Margin="266,50,0,0" TextWrapping="Wrap" Text="Welcome to the Service Registry" VerticalAlignment="Top" Width="248" FontSize="15" FontWeight="Bold"/>
-        <Button x:Name="getServicesButton"  Style="{DynamicResource RoundButton}" Content="Get All Services" HorizontalAlignment="Left" Margin="324,93,0,0" VerticalAlignment="Top" Height="18" Width="108" Click="getServicesButton_Click"/>
+    <Grid Margin="0,0,0,-149">
+        <TextBlock x:Name="welcomeText" HorizontalAlignment="Left" Height="19" Margin="655,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" FontSize="14" FontWeight="Bold" TextAlignment="Right"/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="262,49,0,0" TextWrapping="Wrap" Text="Welcome to the Service Registry" VerticalAlignment="Top" Width="232" FontSize="15" FontWeight="Bold" Foreground="#FF534C5C"/>
+        <Button x:Name="getServicesButton"  Style="{DynamicResource RoundButton}" Content="Get All Services" HorizontalAlignment="Left" Margin="324,93,0,0" VerticalAlignment="Top" Height="18" Width="108"  Background="#FFE8DFCA" Click="getServicesButton_Click"/>
         <TextBox x:Name="searchBoxText" HorizontalAlignment="Left" Style="{DynamicResource TextBoxStyle1}" Height="25" Margin="238,141,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="206"  FontSize="12"
                  BorderBrush="{x:Null}"
                  Background="#FFE6EEF7"
                  Foreground="#FF4C4E52"/>
-        <Button x:Name="searchServiceButton"  Style="{DynamicResource RoundButton}" Content="Search" HorizontalAlignment="Left" Margin="451,141,0,0" VerticalAlignment="Top" Height="18" Width="73" Click="searchServiceButton_Click"/>
-        <DataGrid AutoGenerateColumns="False" x:Name="allServiceTable" HorizontalAlignment="Center" Height="134" Margin="0,185,0,0" VerticalAlignment="Top" Width="800" PreviewMouseDoubleClick="allServiceTable_PreviewMouseDoubleClick">
+        <Button x:Name="searchServiceButton"  Style="{DynamicResource RoundButton}" Content="Search" HorizontalAlignment="Left" Margin="451,141,0,0" VerticalAlignment="Top" Height="18" Width="73" Background="#FFE6EEF7" Click="searchServiceButton_Click"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="allServiceTable" HorizontalAlignment="Center" Height="134" Margin="0,185,0,0" VerticalAlignment="Top" Width="780" PreviewMouseDoubleClick="allServiceTable_PreviewMouseDoubleClick">
             <DataGrid.Resources>
                 <Style TargetType= "{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="White"/>
                     <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Foreground" Value="#FF534C5C"/>
                     <Setter Property="BorderThickness" Value="0"/>
+
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Name}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}" Width="200"></DataGridTextColumn>
                 <DataGridTextColumn Header="API Endpoint" IsReadOnly="True" Binding="{Binding APIendpoint}" Width="250"></DataGridTextColumn>
-                <DataGridTextColumn Header="Num.of Operands" IsReadOnly="True" Binding="{Binding NumOperands}" Width="110"></DataGridTextColumn>
-                <DataGridTextColumn Header="Operand Type" IsReadOnly="True" Binding="{Binding OperandType}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Operands" IsReadOnly="True" Binding="{Binding NumOperands}" Width="75"></DataGridTextColumn>
+                <DataGridTextColumn Header="Operand Type" IsReadOnly="True" Binding="{Binding OperandType}" Width="80"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Label x:Name="labelDesc" Content="" Visibility="Visible" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelAPI" Visibility="Visible" Content="" HorizontalAlignment="Left" Margin="10,377,0,0" VerticalAlignment="Top"/>
+        <StackPanel x:Name="panel1" HorizontalAlignment="Left" Height="27" Margin="248,353,0,0" VerticalAlignment="Top" Width="66">
+            <TextBox Name="txtbox1" Visibility="Hidden" Height="23" TextWrapping="Wrap" Text=""/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="27" Margin="346,353,0,0" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.328,0.483">
+            <TextBox x:Name="txtbox2" Visibility="Hidden" Height="23" TextWrapping="Wrap" Text="" Margin="0,0,-0.6,0"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="27" Margin="451,353,0,0" VerticalAlignment="Top" Width="53">
+            <TextBox Name="txtbox3" Visibility="Hidden" Height="23" TextWrapping="Wrap" Text=""/>
+        </StackPanel>
+        <Button x:Name="CalcButton" Style="{DynamicResource RoundButton}" Visibility="hidden" Content="Calculate" HorizontalAlignment="Left" Margin="530,353,0,0" VerticalAlignment="Top" Width="55" Click="CalcButton_Click"/>
+
+        <Button x:Name="LogoutButton"  Style="{DynamicResource RoundButton}" Content="Logout" HorizontalAlignment="Left" Margin="707,45,0,0" VerticalAlignment="Top" Height="10" Width="60" FontSize="10" Background="#FFFFD1D1" Click="LogoutButton_Click"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Margin="324,331,0,0" VerticalAlignment="Top" Width="120" Height="7"/>
+
     </Grid>
 
 

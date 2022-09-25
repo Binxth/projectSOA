@@ -9,9 +9,10 @@ using System.Web.Http;
 
 namespace ServiceProvider.Services
 {
+    //This class is used to do the implementation of different operations.
+    
     public static class ArithmaticService
     {
-
 
         public static int AddTwoNums(int num1, int num2)
         {
@@ -40,5 +41,13 @@ namespace ServiceProvider.Services
             int sum = num1 * num2 * num3;
             return sum;
         }
+
+        public static int AddFourNums(int num1, int num2, int num3, int num4)
+        {
+
+            int sum = num1 + num2 + num3 + num4;
+            return sum;
+        }
+        
     }
 }
