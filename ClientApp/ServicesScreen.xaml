@@ -8,7 +8,7 @@
         Title="ServicesScreen" Height="450" Width="800">
     <Grid Margin="0,0,0,-149">
         <TextBlock x:Name="welcomeText" HorizontalAlignment="Left" Height="19" Margin="655,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" FontSize="14" FontWeight="Bold" TextAlignment="Right"/>
-        <TextBlock HorizontalAlignment="Left" Height="27" Margin="262,49,0,0" TextWrapping="Wrap" Text="Welcome to the Service Registry" VerticalAlignment="Top" Width="232" FontSize="15" FontWeight="Bold" Foreground="#FF534C5C"/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="262,45,0,0" TextWrapping="Wrap" Text="Welcome to the Service Registry" VerticalAlignment="Top" Width="232" FontSize="15" FontWeight="Bold" Foreground="#FF534C5C"/>
         <Button x:Name="getServicesButton"  Style="{DynamicResource RoundButton}" Content="Get All Services" HorizontalAlignment="Left" Margin="324,93,0,0" VerticalAlignment="Top" Height="18" Width="108"  Background="#FFE8DFCA" Click="getServicesButton_Click"/>
         <TextBox x:Name="searchBoxText" HorizontalAlignment="Left" Style="{DynamicResource TextBoxStyle1}" Height="25" Margin="238,141,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="206"  FontSize="12"
                  BorderBrush="{x:Null}"

@@ -34,9 +34,9 @@ namespace ClientApp
             welcomeText.Text = "Hello " + user.username + "!";
         }
 
-        private void getServicesButton_Click(object sender, RoutedEventArgs e)
+        private async void getServicesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            progressBar.IsIndeterminate = true;
 
             //creating the rest client with server URL
             RestClient restClient = new RestClient("http://localhost:11252/");
@@ -46,17 +46,26 @@ namespace ClientApp
 
             //adding the logged in users token to the URL as a Query Parameter
             restRequest.AddQueryParameter("token", user.token);
-            RestResponse response = restClient.Execute(restRequest);
+
+            //make async request
+            Task<RestResponse> asyncResponse = restClient.ExecuteAsync(restRequest);
+            //progress bar is activated until the async request is completed
+           
+
+            RestResponse response = await asyncResponse;
+
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 List<ServiceModel> allServices = new List<ServiceModel>();
                 allServices = JsonConvert.DeserializeObject<List<ServiceModel>>(response.Content);
                 List<ServiceModel> gridData = new List<ServiceModel>();
                 allServiceTable.ItemsSource = allServices;
+                progressBar.IsIndeterminate = false;
             }
             else
             {
                 MessageBox.Show("Error: " + response.StatusCode);
+                progressBar.IsIndeterminate = false;
             }
 
         }

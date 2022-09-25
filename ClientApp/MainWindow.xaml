@@ -6,6 +6,31 @@
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="278,97,0,0" TextWrapping="Wrap" Text="Welcome to the Client" VerticalAlignment="Top" FontSize="25" Width="264" FontFamily="Arial" FontWeight="Bold" Foreground="#FF534C5C"/>
+        <TextBox  x:Name="usrNameBox" Style="{DynamicResource TextBoxStyle1}" HorizontalAlignment="Center" Height="31" Margin="0,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="198"
+                 FontSize="15"
+                 BorderBrush="{x:Null}"
+                 Background="#FFE6EEF7"
+                 Foreground="#FF4C4E52"
+                 />
+        <Button Style="{DynamicResource RoundButton}" x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Height="28" Margin="301,267,0,0" VerticalAlignment="Top" Width="82" Click="loginButton_Click"
+                Background="#FFAEBDCA" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Bold" >
+        </Button>
+        <Button Style="{DynamicResource RoundButton}" x:Name="registerButton" Content="Register" HorizontalAlignment="Left" Height="28" Margin="417,267,0,0" VerticalAlignment="Top" Width="82" Click="registerButton_Click"
+               Background="#FFE8DFCA" FontFamily="Arial" FontSize="13" FontWeight="Bold" Foreground="#FF4C4E52"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="198" Height="31" Margin="0,223,0,0" FontSize="15"
+                 BorderBrush="{x:Null}"
+                 Background="#FFE6EEF7"
+                 Foreground="#FF4C4E52"
+                 />
+        <TextBlock HorizontalAlignment="Left" Margin="301,146,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Foreground="#FF534C5C"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="301,207,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Foreground="#FF534C5C" />
+
+    </Grid>
+
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -107,27 +132,4 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="278,97,0,0" TextWrapping="Wrap" Text="Welcome to the Client" VerticalAlignment="Top" FontSize="25" Width="264" FontFamily="Arial" FontWeight="Bold" Foreground="#FF534C5C"/>
-        <TextBox  x:Name="usrNameBox" Style="{DynamicResource TextBoxStyle1}" HorizontalAlignment="Center" Height="31" Margin="0,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="198"
-                 FontSize="15"
-                 BorderBrush="{x:Null}"
-                 Background="#FFE6EEF7"
-                 Foreground="#FF4C4E52"
-                 />
-        <Button Style="{DynamicResource RoundButton}" x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Height="28" Margin="301,267,0,0" VerticalAlignment="Top" Width="82" Click="loginButton_Click"
-                Background="#FFAEBDCA" Foreground="White" FontFamily="Arial" FontSize="13" FontWeight="Bold" >
-        </Button>
-        <Button Style="{DynamicResource RoundButton}" x:Name="registerButton" Content="Register" HorizontalAlignment="Left" Height="28" Margin="417,267,0,0" VerticalAlignment="Top" Width="82" Click="registerButton_Click"
-               Background="#FFE8DFCA" FontFamily="Arial" FontSize="13" FontWeight="Bold" Foreground="#FF4C4E52"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="198" Height="31" Margin="0,223,0,0" FontSize="15"
-                 BorderBrush="{x:Null}"
-                 Background="#FFE6EEF7"
-                 Foreground="#FF4C4E52"
-                 />
-        <TextBlock HorizontalAlignment="Left" Margin="301,146,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Foreground="#FF534C5C"/>
-
-        <TextBlock HorizontalAlignment="Left" Margin="301,207,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Foreground="#FF534C5C" />
-
-    </Grid>
 </Window>
